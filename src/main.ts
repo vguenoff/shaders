@@ -17,15 +17,11 @@ function onWindowResize(three: WebGLRenderer) {
 }
 
 class SimonDevGLSLCourse {
-    #three: WebGLRenderer
-    #scene: Scene
-    #camera: OrthographicCamera
+    #three = new WebGLRenderer()
+    #scene = new Scene()
+    #camera = new OrthographicCamera(0, 1, 1, 0, 0.1, 1000)
 
     constructor() {
-        this.#three = new WebGLRenderer()
-        this.#scene = new Scene()
-        this.#camera = new OrthographicCamera(0, 1, 1, 0, 0.1, 1000)
-
         document.body.appendChild(this.#three.domElement)
         this.#raf()
         this.#render()
