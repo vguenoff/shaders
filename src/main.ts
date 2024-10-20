@@ -10,18 +10,18 @@ import {
 import vertexShader from "./shaders/vertex-shader.glsl"
 import fragmentShader from "./shaders/fragment-shader.glsl"
 
-import "./style.css"
+import { onWindowResize } from "./utils/common"
 
-function onWindowResize(three: WebGLRenderer) {
-    three.setSize(window.innerWidth, window.innerHeight)
-}
+import "./style.css"
 
 class SimonDevGLSLCourse {
     #three = new WebGLRenderer()
     #scene = new Scene()
     #camera = new OrthographicCamera(0, 1, 1, 0, 0.1, 1000)
 
-    constructor() {
+    constructor() {}
+
+    init() {
         document.body.appendChild(this.#three.domElement)
         this.#raf()
         this.#render()
@@ -50,4 +50,5 @@ class SimonDevGLSLCourse {
     }
 }
 
-new SimonDevGLSLCourse()
+const course = new SimonDevGLSLCourse()
+course.init()
